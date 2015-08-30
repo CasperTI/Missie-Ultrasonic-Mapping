@@ -104,10 +104,6 @@ void UltraSonicMap::addMaps(std::vector<int> localMap, int* mapOffset){ // take 
 }
 
 void UltraSonicMap::processGlobalMap(std::vector<int> localMap){
-	int theSpeed[2];
-	getComponents((double)rotation,(double)Speed,theSpeed);
-	posOffset[0] += theSpeed[0];
-	posOffset[1] += theSpeed[1];
 	// calculate (if any) how many rows to add and where
 	int xRows = (posOffset[0] > 0 ? 1:-1) * (posOffset[0] - (posOffset[0] % cmSquare))/cmSquare+ (posOffset[0]%cmSquare != 0 ? 1:0); // total of rows extra needed in currently headed direction, as absolute value
 	int yRows =  (posOffset[1] > 0 ? 1:-1) * (posOffset[1] - (posOffset[1] % cmSquare))/cmSquare+ (posOffset[1]%cmSquare != 0 ? 1:0);
